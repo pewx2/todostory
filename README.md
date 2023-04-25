@@ -1,2 +1,4 @@
-# todostory
-ToDo list, but like stories
+# ToDo Story
+ToDo list, but like instagram stories
+
+Status: work in progress
