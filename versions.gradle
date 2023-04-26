@@ -13,14 +13,19 @@ ext.versions = [
         targetSdk        : 33,
         compileSdk       : 33,
 
-        buildTools       : '33.0.2',
-
+        // AndroidX
         core             : '1.10.0',
         appcompat        : '1.6.1',
-        material         : '1.8.0',
         recycler_view    : '1.2.1',
         constraint_layout: '2.1.4',
         navigation       : '2.5.3',
+        room             : '2.5.1',
+
+        // Material
+        material         : '1.8.0',
+
+        // DI
+        hilt             : '2.44'
 ]
 
 ext.buildApkName = {

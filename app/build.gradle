@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 apply from: "$rootDir/versions.gradle"
@@ -43,14 +45,31 @@ android {
 }
 
 dependencies {
+    // AndroidX
     implementation "androidx.core:core-ktx:$versions.core"
     implementation "androidx.appcompat:appcompat:$versions.appcompat"
-    implementation "com.google.android.material:material:$versions.material"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 
+    // Material
+    implementation "com.google.android.material:material:$versions.material"
+
+    // Room
+    implementation "androidx.room:room-runtime:$versions.room"
+    kapt "androidx.room:room-compiler:$versions.room"
+
+    // DI
+    implementation "com.google.dagger:hilt-android:$versions.hilt"
+    kapt "com.google.dagger:hilt-compiler:$versions.hilt"
+
+    // Tests
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes true
 }
